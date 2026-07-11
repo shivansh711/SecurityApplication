@@ -13,7 +13,7 @@ public class LoginDTO {
     private String email;
 
 
-    @NotBlank(message = "User name can not be blank")
-    @Size(min = 3 , max = 10, message = "Number of characters in name should be in the range:[3,10]")
-    private String name;
+    @NotBlank(message = "User password can not be blank")
+    @Min(value = 3,message = "Password length can not be less than 3")
+    private String password;
 }
