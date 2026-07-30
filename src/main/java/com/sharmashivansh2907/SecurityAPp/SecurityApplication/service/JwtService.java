@@ -5,5 +5,6 @@ import com.sharmashivansh2907.SecurityAPp.SecurityApplication.entity.User;
 public interface JwtService {
 
     String generateToken(User user);
-
+    String generateRefreshToken(User user);
+    Long getUserIDFromToken(String token);
 }

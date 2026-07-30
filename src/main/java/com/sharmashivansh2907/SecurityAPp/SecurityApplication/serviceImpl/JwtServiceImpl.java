@@ -39,6 +39,15 @@ public class JwtServiceImpl implements JwtService {
                 .compact();
     }
 
+    public String generateRefreshToken(User user) { // this is how we generate the token
+        return Jwts.builder()
+                .subject(user.getID().toString())
+                .issuedAt(new Date())
+                .expiration(new Date(System.currentTimeMillis() + 1000L*60*60*24*30*6))
+                .signWith(getSecretKey())
+                .compact();
+    }
+
     // from this token  we will get the user ID
     public Long getUserIDFromToken(String token){
         Claims claims = Jwts.parser()
